@@ -1,0 +1,25 @@
+<!-- menu.component.html -->
+<div class="container">
+  <h1>Restaurant Menu</h1>
+  <h2>בחר מנה אחת מהתפריט:</h2>
+  <div class="menu">
+    <div *ngFor="let dish of dishes" 
+         class="dish" 
+         [class.selected]="selectedDish === dish" 
+         (click)="selectDish(dish)">
+      <div class="dish-content">
+        <h2>{{ dish.name }}</h2>
+
+        <div class="dish-details">
+                  <img src="assets/{{ dish.photo }}" alt="{{ dish.name }}" class="dish-img">
+
+          <p class="description">{{ dish.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button type="button" (click)="vote()" class="vote-btn" [disabled]="hasVoted">Submit Vote</button>
+  <div *ngIf="confirmationMessage" class="confirmation-message">
+    {{ confirmationMessage }}
+  </div>
+</div>

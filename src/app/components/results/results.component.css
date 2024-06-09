@@ -1,0 +1,33 @@
+.results-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .dish-results {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .dish-results img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-left: 20px;
+  }
+  
+  .dish-results .description {
+    flex-grow: 1;
+  }
+  
+  .dish-results h2 {
+    margin: 0;
+  }
+  
+  .dish-results p {
+    margin: 5px 0 0;
+  }
+  

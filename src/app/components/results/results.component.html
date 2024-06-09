@@ -1,0 +1,11 @@
+<div class="results-container">
+    <h1>תוצאות</h1>
+    <div class="dish-results" *ngFor="let result of results">
+      <img [src]="result.photo" alt="{{ result.name }}">
+      <div class="description">
+        <h2>{{ result.name }}</h2>
+        <h3> מספר הצבעות: {{ result.votes }}</h3>
+      </div>
+    </div>
+  </div>
+  
