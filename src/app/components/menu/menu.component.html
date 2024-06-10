@@ -1,5 +1,12 @@
-<!-- menu.component.html -->
-<div *ngIf="dishes" class="container">
+  
+  <!-- Loading Spinner -->
+<ng-template #loading>
+  <div class="loading-spinner">
+    <div class="spinner"></div>
+  </div>
+</ng-template> 
+
+<div *ngIf="dishes; else loading" class="container">
   <h1>Menu</h1>
   <h2>בחר מנה אחת מהתפריט:</h2>
   <div class="menu">

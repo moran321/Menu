@@ -11,6 +11,7 @@ export class ResultsComponent implements OnInit {
   results_promoted: { name: string, votes: number, photo: string, percentage: number }[] = [];
   results_regular: { name: string, votes: number, photo: string, percentage: number }[] = [];
   comparison: any[] = [];
+  isLoading: boolean = true;
 
   private resSubs: Subscription = new Subscription();
 
@@ -37,9 +38,12 @@ export class ResultsComponent implements OnInit {
         } else {
           this.results_regular = processedResults;
         }
+        this.isLoading = false;
       },
       error => {
         console.error('Error:', error);
+        alert(error.message);
+        this.isLoading = false;
       }
     );
   }
