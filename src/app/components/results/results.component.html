@@ -1,10 +1,28 @@
-<div class="results-container">
+   <div class="results-container">
     <h1>תוצאות</h1>
-    <div class="dish-results" *ngFor="let result of results">
-      <img [src]="result.photo" alt="{{ result.name }}">
-      <div class="description">
-        <h2>{{ result.name }}</h2>
-        <h3> מספר הצבעות: {{ result.votes }}</h3>
+    <div class="results-comparison">
+      <div class="menu-results" *ngIf="results_promoted.length > 0">
+        <h2>תפריט מקודם</h2>
+        <div class="dish-results" *ngFor="let result of results_promoted">
+          <img [src]="result.photo" alt="{{ result.name }}">
+          <div class="description">
+            <h3>{{ result.name }}</h3>
+            <!-- <p> מספר הצבעות: {{ result.votes }}</p> -->
+            <p>אחוז הצבעות: {{ result.percentage }}%</p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="menu-results" *ngIf="results_regular.length > 0">
+        <h2>תפריט רגיל</h2>
+        <div class="dish-results" *ngFor="let result of results_regular">
+          <img [src]="result.photo" alt="{{ result.name }}">
+          <div class="description">
+            <h3>{{ result.name }}</h3>
+            <!-- <p> מספר הצבעות: {{ result.votes }}</p> -->
+            <p>אחוז הצבעות: {{ result.percentage }}%</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
