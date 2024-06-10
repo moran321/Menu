@@ -53,3 +53,14 @@
     margin: 5px 0;
   }
   
+  .votes-high {
+    background-color: #c4feb1; /* Light green */  
+  }
+  
+  .votes-medium {
+    background-color: #fbdeb3; /* Light orange */
+  }
+  
+  .votes-low {
+    background-color: #ffc4c4; /* Light red */   
+  }

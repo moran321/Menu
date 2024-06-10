@@ -8,7 +8,7 @@
           <div class="description">
             <h3>{{ result.name }}</h3>
             <!-- <p> מספר הצבעות: {{ result.votes }}</p> -->
-            <p>אחוז הצבעות: {{ result.percentage }}%</p>
+            <p [ngClass]="getClassBasedOnVotes(result.percentage)">אחוז הצבעות: {{ result.percentage }}%</p>
           </div>
         </div>
       </div>
@@ -20,7 +20,7 @@
           <div class="description">
             <h3>{{ result.name }}</h3>
             <!-- <p> מספר הצבעות: {{ result.votes }}</p> -->
-            <p>אחוז הצבעות: {{ result.percentage }}%</p>
+            <p [ngClass]="getClassBasedOnVotes(result.percentage)">אחוז הצבעות: {{ result.percentage }}%</p>
           </div>
         </div>
       </div>
