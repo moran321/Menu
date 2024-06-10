@@ -39,10 +39,10 @@ export class MenuComponent implements OnInit {
   }
 
   vote(): void {
-    // if (this.hasVoted) {
-    //   this.confirmationMessage = 'You have already voted.';
-    //   return;
-    // }
+    if (this.hasVoted) {
+      this.confirmationMessage = 'You have already voted.';
+      return;
+    }
     if (this.selectedDish) {
       this.isSubmitting = true;
       this.menuService.vote(this.selectedDish.id, this.menuId).pipe(first()).subscribe(
