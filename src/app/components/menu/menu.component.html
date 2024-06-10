@@ -17,8 +17,7 @@
       </div>
     </div>
   </div>
-  <button type="button" (click)="vote()" class="vote-btn" [disabled]=" isSubmitting">Submit Vote</button>
-  <!-- <button type="button" (click)="vote()" class="vote-btn" [disabled]="hasVoted || isSubmitting">Submit Vote</button> -->
+  <button type="button" (click)="vote()" class="vote-btn" [disabled]="hasVoted || isSubmitting">Submit Vote</button>
   <div *ngIf="confirmationMessage" class="confirmation-message">
     {{ confirmationMessage }}
   </div>
