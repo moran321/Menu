@@ -8,6 +8,8 @@ const port = process.env.PORT || 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
+let lastMenu = 1;
+
 const menus = {
   1: [
     {
@@ -79,10 +81,16 @@ const menus = {
   ],
 };
 
-app.get("/menu/:id", (req, res) => {
-  const menuId = parseInt(req.params.id);
-  res.json(menus[menuId]);
+app.get("/menu", (req, res) => {
+  lastMenu = lastMenu === 1 ? 2 : 1; // rotate between 2/1 each call
+  console.log(lastMenu);
+  res.json({ id: lastMenu, menu: menus[lastMenu] });
 });
+
+// app.get("/menu/:id", (req, res) => {
+//   const menuId = parseInt(req.params.id);
+//   res.json(menus[menuId]);
+// });
 
 app.post("/vote", (req, res) => {
   const { dishId, menuId } = req.body;

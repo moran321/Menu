@@ -12,9 +12,14 @@ export class MenuService {
 
   constructor(private http: HttpClient) {}
   
-  getMenu(menuId: number): Observable<any> {
-    return this.http.get(`${this.apiUrl}/menu/${menuId}`);
+  // getMenu(menuId: number): Observable<any> {
+  //   return this.http.get(`${this.apiUrl}/menu/${menuId}`);
+  // }
+
+    getMenu(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/menu`);
   }
+
 
   vote(dishId: number, menuId: number): Observable<any> {
     return this.http.post(`${this.apiUrl}/vote`, { dishId, menuId });

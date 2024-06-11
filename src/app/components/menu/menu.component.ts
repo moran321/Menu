@@ -15,15 +15,16 @@ export class MenuComponent implements OnInit {
   hasVoted: boolean = false;
   menuId: number = 0;
   isSubmitting = false;
-
+  isLoading = true;
   constructor(private menuService: MenuService) {}
 
   ngOnInit(): void {
     this.checkIfVoted();
-    this.menuId = Math.random() < 0.5 ? 1 : 2; // Randomly assign menuId 1 or 2
-    this.menuService.getMenu(this.menuId).pipe(first()).subscribe(data => {
+    this.menuService.getMenu().pipe(first()).subscribe(data => {
       console.log(data)
-      this.dishes = data;
+      this.menuId = data.id;
+      this.dishes = data.menu;
+      this.isLoading = false;
     });
   }
 

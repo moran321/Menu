@@ -1,31 +1,33 @@
   
   <!-- Loading Spinner -->
 <ng-template #loading>
+  <h1>Menu is loading</h1>
   <div class="loading-spinner">
     <div class="spinner"></div>
   </div>
 </ng-template> 
-
-<div *ngIf="dishes; else loading" class="container">
-  <h1>Menu</h1>
-  <h2>בחר מנה אחת מהתפריט:</h2>
-  <div class="menu">
-    <div *ngFor="let dish of dishes" 
-         class="dish" 
-         [class.selected]="selectedDish === dish" 
-         (click)="selectDish(dish)">
-      <div class="dish-content">
-        <h2>{{ dish.name }}</h2>
-        <div class="dish-details">
-                  <img src="assets/{{ dish.photo }}" alt="{{ dish.name }}" class="dish-img">
-
-          <p class="description">{{ dish.description }}</p>
+<div *ngIf="!isLoading else loading">
+  <div *ngIf="dishes" class="container">
+    <h1>Menu</h1>
+    <h2>בחר מנה אחת מהתפריט:</h2>
+    <div class="menu">
+      <div *ngFor="let dish of dishes" 
+           class="dish" 
+           [class.selected]="selectedDish === dish" 
+           (click)="selectDish(dish)">
+        <div class="dish-content">
+          <h2>{{ dish.name }}</h2>
+          <div class="dish-details">
+                    <img src="assets/{{ dish.photo }}" alt="{{ dish.name }}" class="dish-img">
+  
+            <p class="description">{{ dish.description }}</p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <button type="button" (click)="vote()" class="vote-btn" [disabled]="hasVoted || isSubmitting">Submit Vote</button>
-  <div *ngIf="confirmationMessage" class="confirmation-message">
-    {{ confirmationMessage }}
+    <button type="button" (click)="vote()" class="vote-btn" [disabled]="hasVoted || isSubmitting">Submit Vote</button>
+    <div *ngIf="confirmationMessage" class="confirmation-message">
+      {{ confirmationMessage }}
+    </div>
   </div>
 </div>
