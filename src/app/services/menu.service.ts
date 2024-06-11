@@ -11,12 +11,17 @@ export class MenuService {
   private apiUrl = environment.apiUrl; // Use the environment variable
 
   constructor(private http: HttpClient) {}
-
-  vote(dish: number): Observable<any> {
-    return this.http.post(`${this.apiUrl}/vote`, { id: dish });
+  
+  getMenu(menuId: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/menu/${menuId}`);
   }
 
-  getResults(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/results`);
+  vote(dishId: number, menuId: number): Observable<any> {
+    return this.http.post(`${this.apiUrl}/vote`, { dishId, menuId });
+  }
+
+  getResults(menuId: number): Observable<any> {
+    console.log('getResults');
+    return this.http.get(`${this.apiUrl}/results/${menuId}`);
   }
 }

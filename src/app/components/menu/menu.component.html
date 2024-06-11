@@ -1,6 +1,13 @@
-<!-- menu.component.html -->
-<div class="container">
-  <h1>Restaurant Menu</h1>
+  
+  <!-- Loading Spinner -->
+<ng-template #loading>
+  <div class="loading-spinner">
+    <div class="spinner"></div>
+  </div>
+</ng-template> 
+
+<div *ngIf="dishes; else loading" class="container">
+  <h1>Menu</h1>
   <h2>בחר מנה אחת מהתפריט:</h2>
   <div class="menu">
     <div *ngFor="let dish of dishes" 
@@ -9,7 +16,6 @@
          (click)="selectDish(dish)">
       <div class="dish-content">
         <h2>{{ dish.name }}</h2>
-
         <div class="dish-details">
                   <img src="assets/{{ dish.photo }}" alt="{{ dish.name }}" class="dish-img">
 
@@ -18,7 +24,7 @@
       </div>
     </div>
   </div>
-  <button type="button" (click)="vote()" class="vote-btn" [disabled]="hasVoted">Submit Vote</button>
+  <button type="button" (click)="vote()" class="vote-btn" [disabled]="hasVoted || isSubmitting">Submit Vote</button>
   <div *ngIf="confirmationMessage" class="confirmation-message">
     {{ confirmationMessage }}
   </div>

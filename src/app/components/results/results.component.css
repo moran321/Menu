@@ -1,33 +1,90 @@
-.results-container {
-    max-width: 500px;
+
+   .results-container {
+    max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    text-align: center;
+    direction: rtl; /* Adjusting text direction for Hebrew */
+
+  }
+  
+  .results-comparison {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .menu-results {
+    width: 48%;
+    margin-bottom: 20px;
   }
   
   .dish-results {
+    background-color: hsl(30, 20%, 95%);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: right;
     display: flex;
     align-items: center;
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 10px;
   }
   
   .dish-results img {
     width: 100px;
     height: 100px;
-    object-fit: cover;
+    border-radius: 8px;
     margin-left: 20px;
   }
   
-  .dish-results .description {
-    flex-grow: 1;
+  .description {
+    flex: 1;
   }
   
-  .dish-results h2 {
-    margin: 0;
+  h2 {
+    margin-bottom: 20px;
   }
   
-  .dish-results p {
-    margin: 5px 0 0;
+  h3 {
+    margin: 10px 0;
   }
   
+  p {
+    margin: 5px 0;
+  }
+  
+  .votes-high {
+    background-color: #c4feb1; /* Light green */  
+  }
+  
+  .votes-medium {
+    background-color: #fbdeb3; /* Light orange */
+  }
+  
+  .votes-low {
+    background-color: #ffc4c4; /* Light red */   
+  }
+
+
+/* Loading spinner styles */
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+
+.spinner {
+  border: 8px solid #f3f3f3; /* Light grey */
+  border-top: 8px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/menumone/public_html/git-demo
+      - /bin/cp * $DEPLOYPATH
