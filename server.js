@@ -48,11 +48,11 @@ const menus = {
   2: [
     {
       id: 1,
-      name: "פילה עוף 49",
-      photo: "dish1.jpg",
+      name: "שניצל עוף פריך עם פירה 50",
+      photo: "dish4.jpg",
       votes: 0,
       description:
-        "נתחי פילה עוף עסיסיים בעשבי תיבול טריים, צלויים על גריל פחמים ייחודי. מלווה ברוטב הסודי של השף, המוסיף עומק ועושר טעמים.",
+      "חזה עוף מצופה בפרורי לחם מטוגנים, מוגש עם פירה וסלט כרוב-גזר במיונז.",
     },
     {
       id: 2,
@@ -72,18 +72,17 @@ const menus = {
     },
     {
       id: 4,
-      name: "שניצל עוף פריך עם פירה 50",
-      photo: "dish4.jpg",
+      name: "חזה עוף ברוטב פסטו 49",
+      photo: "dish5.jpg",
       votes: 0,
       description:
-        "חזה עוף מצופה בפרורי לחם מטוגנים, מוגש עם פירה וסלט כרוב-גזר במיונז.",
+        "נתחי חזה עוף צרובים ומתובלים ברוטב פסטו. מוגב עם מגוון ירקות קלויים.",
     },
   ],
 };
 
 app.get("/menu", (req, res) => {
   lastMenu = lastMenu === 1 ? 2 : 1; // rotate between 2/1 each call
-  console.log(lastMenu);
   res.json({ id: lastMenu, menu: menus[lastMenu] });
 });
 
