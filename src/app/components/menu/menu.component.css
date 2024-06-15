@@ -60,6 +60,7 @@ h2{
 .dish-details {
   /* padding: 20px; */
   display: flex; 
+  align-items: center;
 }
 
 .dish-details h2 {
