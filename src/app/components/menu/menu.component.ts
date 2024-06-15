@@ -21,7 +21,6 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void {
     this.checkIfVoted();
     this.menuService.getMenu().pipe(first()).subscribe(data => {
-      console.log(data)
       this.menuId = data.id;
       this.dishes = data.menu;
       this.isLoading = false;
