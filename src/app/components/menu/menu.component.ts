@@ -47,7 +47,7 @@ export class MenuComponent implements OnInit {
       this.isSubmitting = true;
       this.menuService.vote(this.selectedDish.id, this.menuId).pipe(first()).subscribe(
         response => {
-          this.confirmationMessage = 'Thank you for your vote!';
+          this.confirmationMessage = 'תודה על הזמנתך! המנה בהכנה.';
           localStorage.setItem('hasVoted', 'true');
           this.hasVoted = true;
         },
